@@ -1,0 +1,1 @@
+g++ main.cpp KeyBoard.cpp PlugBoard.cpp Reflector.cpp Rotor.cpp -o main
