@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 
+#define NUM_ALPHAS 26
+
 // Defining the different components of the enigma machine.
 
 class KeyBoard
@@ -41,6 +43,9 @@ public:
 
     int forwardProp(int signal);
     int backwardProp(int signal);
+
+    void Rotate(int numTurns); // Rotor stepping.
+
 };
 
 class Reflector
@@ -54,4 +59,5 @@ public:
     Reflector(std::string wiring);
     int reflectSignal(int signal);
 };
+
 #endif
