@@ -46,7 +46,8 @@ void Rotor::show()
               << this->right << std::endl;
 }
 
-void Rotor::RotateLetter(char letter) {
+void Rotor::RotateLetter(char letter)
+{
 
     int index = this->left.find(letter);
     this->Rotate(index);
