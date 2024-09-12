@@ -1,6 +1,7 @@
 #include "Enigma.hpp"
 
-char Enigma::Encrypt(char plainChar) {
+char Enigma::Encrypt(char plainChar)
+{
 
     int signal = this->kb.forward(plainChar);
     signal = this->pb.forwardProp(signal);
@@ -28,8 +29,46 @@ char Enigma::Encrypt(char plainChar) {
 
     // Rotating the Rotors.
 
-    if(this->)
+    if ((this->r2.left[0] == this->r2.notch) &&
+        (this->r3.left[0] == this->r3.notch) &&
+        (this->r4.left[0] == this->r4.notch) &&
+        (this->r5.left[0] == this->r5.notch))
+    {
+
+        this->r1.Rotate(1);
+        this->r2.Rotate(1);
+        this->r3.Rotate(1);
+        this->r4.Rotate(1);
+        this->r5.Rotate(1);
+    }
+    else if ((this->r3.left[0] == this->r3.notch) &&
+             (this->r4.left[0] == this->r4.notch) &&
+             (this->r5.left[0] == this->r5.notch))
+    {
+
+        this->r2.Rotate(1);
+        this->r3.Rotate(1);
+        this->r4.Rotate(1);
+        this->r5.Rotate(1);
+    }
+    else if ((this->r4.left[0] == this->r4.notch) &&
+             (this->r5.left[0] == this->r5.notch))
+    {
+        this->r3.Rotate(1);
+        this->r4.Rotate(1);
+        this->r5.Rotate(1);
+    }
+    else if ((this->r5.left[0] == this->r5.notch))
+    {
+
+        this->r4.Rotate(1);
+        this->r5.Rotate(1);
+    }
+    else
+    {
+
+        this->r5.Rotate(1);
+    }
 
     return plainChar;
-
 }

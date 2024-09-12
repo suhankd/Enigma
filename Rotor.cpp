@@ -46,6 +46,12 @@ void Rotor::show()
               << this->right << std::endl;
 }
 
+void Rotor::RotateLetter(char letter) {
+
+    int index = this->left.find(letter);
+    this->Rotate(index);
+}
+
 /*
 
 The following is the rotor wiring for the Enigma-1, introduced in 1930, and the M3 Army, introduced in 1938

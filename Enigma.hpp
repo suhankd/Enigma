@@ -45,6 +45,7 @@ public:
     int backwardProp(int signal);
 
     void Rotate(int numTurns); // Rotor stepping.
+    void RotateLetter(char letter); // Rotate to a letter.
     void show();
 };
 
@@ -62,7 +63,8 @@ public:
 class Enigma
 {
 
-private:
+public:
+
     Reflector refl;
     Rotor r1;
     Rotor r2;
