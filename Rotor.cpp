@@ -31,12 +31,19 @@ void Rotor::Rotate(int numTurns)
     for (int i = 0; i < numTurns; i++)
     {
 
-        for (int j = 0; j < 26; j++)
+        for (int j = 1; j < NUM_ALPHAS; j++)
         {
-
-            std::swap(this->left[j], this->left[(j + 1) % 26]);
+            std::swap(this->right[j], this->right[(j + 1) % NUM_ALPHAS]);
+            std::swap(this->left[j], this->left[(j + 1) % NUM_ALPHAS]);
         }
     }
+}
+
+void Rotor::show()
+{
+
+    std::cout << this->left << std::endl
+              << this->right << std::endl;
 }
 
 /*

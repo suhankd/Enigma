@@ -45,19 +45,38 @@ public:
     int backwardProp(int signal);
 
     void Rotate(int numTurns); // Rotor stepping.
-
+    void show();
 };
 
 class Reflector
 {
 
 public:
-
-    std::string left = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    std::string right = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    std::string left = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    std::string right = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 
     Reflector(std::string wiring);
     int reflectSignal(int signal);
+};
+
+class Enigma
+{
+
+private:
+    Reflector refl;
+    Rotor r1;
+    Rotor r2;
+    Rotor r3;
+    Rotor r4;
+    Rotor r5;
+    PlugBoard pb;
+    KeyBoard kb;
+
+public:
+    Enigma(Reflector R, Rotor A, Rotor B, Rotor C, Rotor D, Rotor E, PlugBoard PB, KeyBoard KB)
+        : refl(R), r1(A), r2(B), r3(C), r4(D), r5(E), pb(PB), kb(KB) {} // Constructor.
+
+    char Encrypt(char plainChar);
 };
 
 #endif

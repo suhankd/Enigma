@@ -29,16 +29,10 @@ int main(void)
 
     char letter = 'A';
 
-    int signal = KB.forward(letter);
-    signal = PB.forwardProp(signal);
-    signal = III.forwardProp(signal);
-    signal = II.forwardProp(signal);
-    signal = I.forwardProp(signal);
-    signal = A.reflectSignal(signal);
-    signal = I.backwardProp(signal);
-    signal = II.backwardProp(signal);
-    signal = III.backwardProp(signal);
-    signal = PB.backwardProp(signal);
-    letter = KB.backward(signal);
+    std::string plainText;
+    std::getline(std::cin >> std::ws, plainText);
+
+    Enigma Enigma_Instance(A, I, II, III, IV, V, PB, KB); // Initializing the Enigma
+    std::cout << Enigma_Instance.Encrypt(letter) << std::endl;
 
 }
