@@ -51,7 +51,7 @@ int main(int argc, char **argv)
         Enigma_Instance.r5.RotateLetter((char)argv[1][4]);
     }
 
-    for (int i = 0; i < sizeof(plainText) / sizeof(plainText[0]); i++)
+    for (int i = 0; i < plainText.size(); i++)
     {
 
         if (isalpha(plainText[i]))
